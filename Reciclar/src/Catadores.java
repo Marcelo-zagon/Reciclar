@@ -1,20 +1,29 @@
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Catadores extends Pagamentos {
-    String nome;
-    int    cpf;
-    LocalDateTime nascimento; // = LocalDateTime.now();
-    final List<Produtos> listaprodutos = new ArrayList<>();
+public class Catadores {
+    final String nomeCatador;
 
-// Construtor
-    public Catadores(String nome, int cpf, LocalDateTime nascimento) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.nascimento = nascimento;
+    final List<Coleta> coleta = new ArrayList<>();
+
+ // construtor
+
+ Catadores (String nomeCatador) {
+    this.nomeCatador = nomeCatador;
+}
+
+ void adicionarColetas(Coleta coleta) {
+    this.coleta.add(coleta);
+    coleta.catador.add(this);
+ }
+
+ double obterValor() {
+    double total = 0;
+    for (Coleta coletas: coleta  ) {
+        total += coletas.obterValor();
     }
+    return total;
 
-
+  }
 
 }
